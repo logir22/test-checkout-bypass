@@ -1,0 +1,12 @@
+name: test-bypass
+on:
+  pull_request_target:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: 16b5e32
+      - run: cat pwned.txt || echo "NO SE ENCONTRO pwned.txt (bloqueado correctamente)"
